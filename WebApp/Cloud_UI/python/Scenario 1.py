@@ -5,7 +5,7 @@ sbn.set_theme()
 #Covid HeatMap
 
 #Read COVID related data
-df_covid = pd.read_csv("election.csv")
+df_covid = pd.read_csv("./result_data/tweets_covid.csv")
 
 #Generate heatmap for Covid related data
 def generate_heatmap():
