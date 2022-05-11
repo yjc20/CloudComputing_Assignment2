@@ -1,31 +1,27 @@
-import numpy as py;
-import plotly as plot;
+import numpy as np;
 import matplotlib.pyplot as plt;
 import pandas as pd;
 
-# Read Data
- crime_df = pd.read_json("/results_data/tweets_crime")
-  
 # Generate bar plots
 def generate_bar_plots():
  
-  barWidth = 0.4
+ # Read Data
+ transport_df = pd.read_csv("./result_data/filename.csv")
+ 
+ barWidth = 0.25
+ x_value1 = ['Train', 'Tram', 'Bus', 'Traffic']
+ x_axis = np.arange(len(x_value1))  
+ c = ['red', 'yellow', 'green', 'blue'] 
+  
+ y_value1 = transport_df['train'].sum()
+ y_value2 = transport_df['tram'].sum()
+ y_value3 = transport_df['bus'].sum()
+ y_value4 = transport_df['traffic'].sum()
 
-  #Need to initialize
-  x_value1 = 
-  x_value2 = 
+ plt.bar(x_axis, y_value1, width = barWidth, color = c, edgecolor = 'black')
   
-  #Need to check this
-  y_value1 = crime_df['results']
-  y_value2 = crime_df['results']
-
-  plt.bar(x_value1, y_value1, width = barWidth, color = 'blue', edgecolor = 'black', capsize=7, label='Subjectivity Score')
-  
-  plt.bar(x_value2, y_value2, width = barWidth, color = 'red', edgecolor = 'black', capsize=7, label='Crime rate')
-  
-  #Initialize the values
-  plt.xticks(, ['', '', '', '', ''])
-  plt.ylabel()
-  plt.legend()
-  
-  plt.show()
+ #Initialize the values
+ plt.xticks(x_axis, x_value1)
+ plt.xlabel('Mode of Transport')
+ plt.ylabel('Polarity')
+ plt.show()
