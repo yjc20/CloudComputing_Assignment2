@@ -26,7 +26,7 @@ ip_file.close()
 couch=Couch('http://'+couchdb_master_ip+':5984/',['tweet'])
 
 # Getting various tweetapi from database
-api=couch.getdata('tweet_api')
+api=couch.getdata('apikey')
 
 #authentication for twitter
 api_key = api['Api_Key']
