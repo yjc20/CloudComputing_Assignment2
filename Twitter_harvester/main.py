@@ -57,7 +57,7 @@ while True:
         
         
         for tweet in tweepy.Cursor(api.search_tweets, q="place:%s" % place, lang='en', result_type='recent', tweet_mode='extended').items(1000):
-            tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name))
+            tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name)})
        
         counter = 0
         # Pushing tweets to db
