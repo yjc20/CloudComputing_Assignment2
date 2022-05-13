@@ -21,7 +21,7 @@ class Couch:
         # Variable to store database objects
         self.db=[]
         # database required at starting
-        present_databse=['apikey','subregion']
+        present_database=['apikey','subregion']
         
         ip_file=open("ip.txt", "r")
 
@@ -34,7 +34,7 @@ class Couch:
         ip_file.close()
 
         # Creating or loading db
-        for dbname in dbsl:
+        for dbname in present_database:
             self.db = self.db + [self.createdb(couchserver,dbname)]
             for child in db_child:
                 couchserver.replicate(couchdb_master_login_url+dbname,'http://admin:admin@'+child.rstrip()+':5984/'+dbname,create_target=True,continuous=True)
@@ -81,14 +81,14 @@ class Couch:
         for i in f.readlines():
             c=json.loads(i)
             try:
-                self.pushdata(c,'tweet_api')
+                self.pushdata(c,'apikey')
             except:
                 pass
         f=open('subregion.json')
         for i in f.readlines():
             d=json.loads(i)
             try:
-                self.pushdata(d,'region')
+                self.pushdata(d,'subregion')
             except:
                 pass       
 
