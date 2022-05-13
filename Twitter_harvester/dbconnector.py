@@ -77,7 +77,7 @@ class Couch:
      # Adding static data to db needed by harvestor
     def create_static(self):
 
-        f=open('tweetapi.json')
+        f=open('apikey.json')
         for i in f.readlines():
             c=json.loads(i)
             try:
