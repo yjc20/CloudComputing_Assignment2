@@ -56,7 +56,7 @@ while True:
     try:
         
         
-        for tweet in tweepy.Cursor(api.search_tweets, q="place:%s" % place, lang='en', result_type='recent', tweet_mode='extended').items(1000):
+        for tweet in tweepy.Cursor(api.search_tweets, q="place:%s" % place, lang='en', result_type='recent', tweet_mode='extended').items(900):
             tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name)})
        
         counter = 0
