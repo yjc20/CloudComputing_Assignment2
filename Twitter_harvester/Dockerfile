@@ -1,7 +1,7 @@
 
 # Assignment-2 COMP90024
 
-FROM python3
+FROM python
 ENV HTTP_PROXY http://wwwproxy.unimelb.edu.au:8000/
 ENV HTTPS_PROXY http://wwwproxy.unimelb.edu.au:8000/
 ENV http_proxy http://wwwproxy.unimelb.edu.au:8000/
