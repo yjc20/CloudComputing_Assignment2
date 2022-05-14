@@ -3,11 +3,7 @@ import matplotlib.pyplot as plt
 from flask import Flask, render_template, send_file, request, url_for, redirect
 import json
 
-from scenario1 import generate_heatmap
-from scenario2 import generate_bar_plots
-from scenario3 import generate_line_graphs
-from scenario4 import generate_pie_chart
-from scenario5 import generate_word_cloud
+from Scenario import twin_barplots, generate_heatmap, generate_bar_plots, generate_line_graphs, generate_pie_chart, generate_word_cloud
 
 app = Flask(__name__)
 
@@ -36,6 +32,9 @@ def display_piechart():
 def wordcloud():
   return generate_word_cloud()
 
+@app.route('/scenario5')
+def display_twin_barplots():
+  return twin_barplots()
 if __name__ == '__main__':
     app.run(debug=True,use_reloader=True)
 
