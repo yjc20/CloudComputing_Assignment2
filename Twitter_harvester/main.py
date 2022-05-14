@@ -13,6 +13,10 @@ import os
 import re
 import time
 from dbconnector import Couch
+from textblob import TextBlob
+from nltk.sentiment import SentimentIntensityAnalyzer
+import nltk
+nltk.download("vader_lexicon")
 
 
 
@@ -39,6 +43,21 @@ authorizer.set_access_token(access_token, access_token_secret)
 api = tweepy.API(authorizer, timeout=15, wait_on_rate_limit=True)
 
 
+def preprocess(text):
+    text = re.sub("@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+", ' ', str(text).lower()).strip()
+    return text
+
+def subjectivity(text):
+    text = preprocess(text)
+    subjectivity = TextBlob(text).sentiment.subjectivity
+    return subjectivity
+    
+    
+def polarity(text):
+    sia = SentimentIntensityAnalyzer()
+    text = preprocess(text)
+    polarity = sia.polarity_scores(text)['compound']
+    return polarity
 
 # Getting tweets 
 while True:
@@ -57,8 +76,10 @@ while True:
         
         
         for tweet in tweepy.Cursor(api.search_tweets, q="place:%s" % place, lang='en', result_type='recent', tweet_mode='extended').items(900):
-            tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name)})
-       
+            tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name),
+                                     "subjectivity":subjectivity(tweet.full_text), "polarity":polarity(tweet.full_text),
+                                     "retweets":tweet.retweet_count, "favorite_count":tweet.favorite_count})
+
         counter = 0
         # Pushing tweets to db
         for i in tweets_collector:
