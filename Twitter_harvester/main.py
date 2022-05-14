@@ -78,7 +78,7 @@ while True:
         for tweet in tweepy.Cursor(api.search_tweets, q="place:%s" % place, lang='en', result_type='recent', tweet_mode='extended').items(900):
             tweets_collector.append({"tweet_id":str(tweet.id), "text":str(tweet.full_text),"city":str(tweet.place.name),
                                      "subjectivity":subjectivity(tweet.full_text), "polarity":polarity(tweet.full_text),
-                                     "retweets":tweet.retweet_count, "favorite_count":tweet.favorite_count})
+                                     "retweet_count":tweet.retweet_count, "favorite_count":tweet.favorite_count})
 
         counter = 0
         # Pushing tweets to db
