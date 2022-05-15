@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Health</title>
+    <h3 style="text-align:center; font-family:Arial; font-size:25px"><b>Health Sentiment</b> </h3>
+</head>
+<body>
+<form action="Home.html">
+
+    <input type = "button" style =
+            "font-size:20px; float; border-radius:8px; background-color:skyblue; position:absolute; center:5%"
+           value="Home"
+           onclick="history.back()"
+           align="bottom">
+
+    <script type="text/javascript">
+        window.history.forward();
+        function preventBack() {
+            window.history.forward();
+            }
+            setTimeout("preventBack()", 0);
+
+        window.onunload = function ()
+        {
+        null
+        };
+    </script>
+
+    <div>
+
+    </div>
+</form>
+</body>
+</html>
