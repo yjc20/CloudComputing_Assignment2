@@ -7,6 +7,7 @@ Created on Sat May 14 17:12:45 2022
 """
 
 import json
+import re
 from dbconnector import Couch
 from textblob import TextBlob
 from nltk.sentiment import SentimentIntensityAnalyzer
