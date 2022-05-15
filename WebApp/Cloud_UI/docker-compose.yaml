@@ -1,4 +1,28 @@
-version: "3.5"
+# Assignment 2 - COMP90024 Course at The University of Melbourne
+#
+# Cluster and Cloud Computing - Team 4
+#
+version: '3'
+
 services:
-    harvester:
-        build: ./Twitter_harvester
+
+  app:
+    container_name: flask_app
+    restart: always
+    build: ./flask_app
+    networks:
+      - webappnet
+    ports:
+      - "5000:5000"
+
+  nginx:
+    container_name: nginx
+    restart: always
+    build: ./nginx
+    networks:
+      - webappnet
+    ports:
+      - "80:8080"
+
+networks:
+  webappnet:
