@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def display_index():
-    return render.template("Home.html")
+    return render.template("index.html")
 
 
 @app.route('/scenario1')
