@@ -26,6 +26,11 @@
         };
     </script>
 
+    <script>
+      var piechart = {{pieJSON | safe}};
+      Plotly.plot('piechart',piechart,{});
+   </script>
+
     <div>
 
     </div>
