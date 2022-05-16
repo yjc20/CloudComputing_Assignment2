@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Relation between %age of Low Income population & Polarity</title>
+    <h3 style="text-align:center; font-family:Arial; font-size:30px"><b>Relation between %age of Low Income population & Polarity</b> </h3>
+</head>
+<body>
+<form action="Home.html">
+    <input type = "button" style =
+            "font-size:20px; float; border-radius:8px; background-color:skyblue; position:absolute; center: 5%;"
+           value="Home"
+           onclick="history.back()"
+           align="bottom"/>
+</form>
+<div id="line_graph" class="line_graph"></div>
+</body>
+   <script>
+      var line_graph = {{line_graphJSON | safe}};
+      Plotly.plot('line_graph',line_graph,{});
+   </script>
+</html>

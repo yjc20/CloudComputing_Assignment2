@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <title>People's sentiment towards Health vs Number of GP's per ten thousand people</title>
+    <h3 style="text-align:center; font-family:Arial; font-size:30px"><b>People's sentiment towards Health vs Number of GP's per ten thousand people</b> </h3>
+</head>
+<body>
+<form action="Home.html">
+    
+    <input type = "button" style =
+            "font-size:20px; float; border-radius:8px; background-color:skyblue; position:absolute; center:5%;"
+           value="Home"
+           onclick="history.back()"
+           align="bottom"/>
+    
+</form>
+<div id="twinbarchart" class="twinbarchart"></div>
+</body>
+
+   <script>
+      var twinbarchart = {{twinbarJSON | safe}};
+      Plotly.plot('twinbarchart',twinbarchart,{});
+   </script>
+</html>

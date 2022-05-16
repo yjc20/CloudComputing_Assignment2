@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Sentiment towards different modes of Transport</title>
+    <h3 style="text-align:center; font-family:Arial; font-size:30px"><b>Sentiment towards different modes of Transport</b>
+    </h3>
+</head>
+<body">
+<form action="Home.html">
+    <input type = "button" style =
+            "font-size:20px; float; border-radius:8px; background-color:skyblue; position:absolute; center: 5%;"
+           value="Home"
+           onclick="history.back()"
+           align="bottom"/>
+</form>
+<div id="barplot" class="barplot"></div>
+</body>
+   <script>
+      var barplot = {{barplotJSON | safe}};
+      Plotly.plot('barplot',barplot,{});
+   </script>
+</html>

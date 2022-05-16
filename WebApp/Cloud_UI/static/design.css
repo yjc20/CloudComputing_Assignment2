@@ -1,0 +1,68 @@
+ {
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box; text-align: center;
+ font-family: 'Times New Roman';}
+
+ main{
+  width: 40%;
+  margin: 10px auto;
+  border:10px solid black;
+  display: grid;
+  color: white;
+  grid-template-rows: 340px 340px 340px 340px 340px 340px;
+ }
+
+ .div1{
+ background: url("sports.png");
+  opacity:1.0;
+  background-size:100% 100%;
+  border-bottom:10px solid black;
+}
+ .div2{
+  background: url("transport.png");
+  opacity:1.0;
+ background-size:100% 100%;border-bottom:10px solid black;
+}
+ .div3{
+ background: url("income.png");
+ opacity:1.0;
+ background-size:100% 100%;border-bottom:10px solid black;
+}
+ .div4{
+ background: url("election.png");
+ opacity:1.0;
+ background-size:100% 100%;border-bottom:10px solid black;
+}
+ .div5{
+ background: url("health.png");
+ opacity:1.0;
+ background-size:100% 100%;border-bottom:10px solid black;
+}
+ .div6{
+ background: url("hashtags.png");
+ opacity:1.0;
+background-size:100% 100%;border-bottom:10px solid black;
+ }
+
+body {
+    position:relative;
+    width: 100%;
+    align:center;
+    justify-content: center;
+
+}
+
+body::before {
+      content: "";
+      background:url("Melbourne.jpg");
+      background-size:100% 100%;
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.3;
+}
+
