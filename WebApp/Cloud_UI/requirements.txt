@@ -1,0 +1,7 @@
+couchdb
+matplotlib
+numpy
+pandas
+wordcloud
+render
+flask
