@@ -4,12 +4,9 @@ import couchdb
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sbn
 from wordcloud import WordCloud
 
 from WebApp.Cloud_UI.python.webapp import wordcloud
-
-sbn.set_theme()
 
 f = open('./ip.txt')
 f = f.readline()
