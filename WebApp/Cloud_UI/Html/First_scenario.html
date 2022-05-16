@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Health</title>
-    <h3 style="text-align:center; font-family:Arial; font-size:25px"><b>Health Sentiment</b> </h3>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Election</title>
+    <h3 style="text-align:center; font-family:Arial; font-size:25px"><b>Election Voting</b> </h3>
 </head>
-<body>
+<body
+        style="background:url(Melbourne.jpg); no-repeat center center absolute; background-size:cover; opacity:1.0; text-align:left">
 <form action="Home.html">
 
     <input type = "button" style =
@@ -12,23 +14,14 @@
            value="Home"
            onclick="history.back()"
            align="bottom">
-
-    <script type="text/javascript">
-        window.history.forward();
-        function preventBack() {
-            window.history.forward();
-            }
-            setTimeout("preventBack()", 0);
-
-        window.onunload = function ()
-        {
-        null
-        };
-    </script>
-
-    <div>
-
-    </div>
 </form>
+<div class="text-white">
+</div>
+<h5 class="text-white">Sports Heatmap</h5>
+<div id="heatmap" class="heatmap"></div>
 </body>
+<script>
+      var heatmap = {{heatmapJSON | safe}};
+      Plotly.plot('heatmap',heatmap,{});
+   </script>
 </html>
