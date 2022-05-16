@@ -1,22 +1,17 @@
  {
- margin: 20;
- padding: 0;
+ margin: 0px;
+ padding: 0px;
  box-sizing: border-box; text-align: center;
  font-family: 'Times New Roman';}
 
  main{
-  width: 60%;
+  width: 40%;
   margin: 10px auto;
-  border:20px solid grey;
+  border:10px solid black;
   display: grid;
   color: white;
   grid-template-rows: 340px 340px 340px 340px 340px 340px;
  }
-
- /*body{
- background:url("Melbourne.jpg");
- opacity:0.8;
- background-size:100% 100%;}*/
 
  .div1{
  background: url("health.png");
@@ -43,3 +38,25 @@
  opacity:1.0;
 background-size:100% 100%;
  }
+
+body {
+    position:relative;
+    width: 100%;
+    align:center;
+    justify-content: center;
+
+}
+
+body::before {
+      content: "";
+      background:url("Melbourne.jpg");
+      background-size:100% 100%;
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.3;
+}
+
