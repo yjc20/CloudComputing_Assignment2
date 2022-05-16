@@ -22,7 +22,10 @@ nltk.download("vader_lexicon")
 
 # ip address for the master node from ip.txt file
 ip_file=open("ip.txt", "r")
-couchdb_master_ip=ip_file.readline().rstrip()
+while True:
+    couchdb_master_ip=ip_file.readline().rstrip()
+    if couchdb_master_ip != '':         #checking to not get an empty string
+        break
 ip_file.close()
 
 
