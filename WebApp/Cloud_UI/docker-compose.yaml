@@ -1,11 +1,15 @@
+# Assignment 2 - COMP90024 Course at The University of Melbourne
+#
+# Cluster and Cloud Computing - Team 4
+#
 version: '3'
 
 services:
 
   app:
-    container_name: webapp
+    container_name: flask_app
     restart: always
-    build: .
+    build: ./flask_app
     networks:
       - webappnet
     ports:
