@@ -15,11 +15,14 @@ import plotly.express as px
 from Scenario import twin_barplots, generate_heatmap, generate_bar_plots, generate_line_graphs, generate_pie_chart, generate_word_cloud
 
 f = open('./ip.txt')
-f = f.readline()
-f = f.strip()
-f = 'http://' + f + ':5984'
+while True:
+ ip = f.readline().strip()
+ if ip != '':
+  break
+f.close()
+ip = 'http://'+ip+':5984'
 
-couchserver = couchdb.Server(url=f)
+couchserver = couchdb.Server(url=ip)
 couchserver.resource.credentials = ('admin', 'admin')
 
 tweet_data = couchserver['tweet']
