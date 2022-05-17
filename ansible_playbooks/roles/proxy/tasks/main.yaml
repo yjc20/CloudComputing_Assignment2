@@ -1,0 +1,11 @@
+
+
+# Adding proxy to instance
+- name: Add Proxy to instance
+  become: yes
+  lineinfile:
+    path: '{{ proxy_path }}'
+    line: '{{ item.proxy }}'
+  loop: "{{ proxy_unimelb }}"
+  when: proxy_unimelb is defined
+

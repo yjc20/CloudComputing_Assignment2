@@ -1,0 +1,13 @@
+# Assignment-2: COMP90024
+
+# Cluster and Cloud Computing - Team 4
+
+# Twitter api keys to mrc
+- name: Create twiter api key file in cloud
+  tags: 'twiter_api_key'
+  become: yes
+  template:
+    src: ./apikey.json.j2
+    dest: '{{ api_path }}'
+    owner: '{{ ansible_user }}'
+    group: "{{ ansible_user }}"

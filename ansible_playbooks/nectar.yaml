@@ -1,0 +1,47 @@
+# Assignment-2 COMP90024
+
+# Cluster and Cloud Computing - Team 4
+
+
+- hosts: localhost
+  vars:  
+    ansible_python_interpreter: /home/ubuntu/anaconda3/bin/python3
+  vars_files:
+    - host_vars/nectar.yaml
+  gather_facts: true
+
+  roles:
+    - role: openstack-common
+    - role: openstack-volume
+    - role: openstack-security-group
+    - role: openstack-instance
+ 
+
+- hosts: db_harvester
+  vars_files:
+     - host_vars/couchdb_var.yaml
+  gather_facts: true
+
+  roles:
+    - role: proxy
+    - role: couchdb-volumes
+    - role: docker-modules
+    - role: git-clone
+    - role: twitter-api
+    - role: docker-container
+
+- hosts: db_harvester:!master
+  vars_files: 
+     - host_vars/couchdb_var.yaml
+  gather_facts: true
+ 
+  roles:
+    - role: couchdb-cluster
+   
+- hosts: webapp
+  gather_facts: true
+
+  roles: 
+    - role: web-app
+    - role: git-clone
+    

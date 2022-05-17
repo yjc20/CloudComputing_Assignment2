@@ -1,0 +1,31 @@
+# Assignment -2 COMP90024
+
+# Cluster and Cloud Computing - Team 4
+
+# Stop webapp container
+- name: Stop webapp Docker container
+  become: yes
+  docker_container:
+    name: Cloud_UI
+    state: absent
+
+# Stop nginx container
+- name: Stop nginx Docker container
+  become: yes
+  docker_container:
+    name: nginx
+    state: absent
+
+# Start nginx and webapp
+- name: Run docker compose
+  tags: 'webapp'
+  become: yes
+  docker_compose:
+    remove_images: local
+    project_src: "{{ web_dir }}"
+    build: yes
+    nocache: yes
+    pull: yes
+    state: present
+    remove_orphans: yes
+    recreate: always

@@ -1,0 +1,34 @@
+# Cluster and Cloud Computing - Team 4
+
+# Start Docker Container
+- name: Start CouchDB Docker container
+  become: yes
+  docker_container:
+    name: couchdb101
+    image: couchdb
+    state: started
+    recreate: true
+    ports:
+      - "5984:5984"
+      - "4369:4369"
+      - "9100-9200:9100-9200"
+    volumes:
+      - volume-0:/opt/couchdb/data
+    pull: yes
+    env:
+      COUCHDB_USER: "{{ user }}"
+      COUCHDB_PASSWORD: "{{ pass }}"
+      COUCHDB_SECRET: "{{ secret_cookie }}"
+      ERL_FLAGS: "-setcookie \"{{ secret_cookie }}\" -name \"couchdb@{{ inventory_hostname }}\""
+
+
+# Start harvester container
+- name: Run docker compose
+  tags: 'harvester'
+  become: yes
+  docker_compose:
+    project_src: "{{ project_dir }}"
+    pull: yes
+    state: present
+    remove_orphans: yes
+    recreate: always

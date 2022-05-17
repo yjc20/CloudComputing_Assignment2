@@ -1,0 +1,7 @@
+# Assignment-2 COMP90024
+
+# Cluster and Cloud Computing - Team 4
+
+user: admin
+pass: admin
+masternode: "{{ groups.db_harvester[0]}}"
